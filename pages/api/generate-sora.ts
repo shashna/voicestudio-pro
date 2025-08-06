@@ -23,7 +23,7 @@ ${JSON.stringify(scenes, null, 2)}
     const completion = await openai.chat.completions.create({
       model: "gpt-4o",
       messages: [{ role: "user", content: prompt }],
-      response_format: "json"
+      response_format: { type: "json_object" }
     });
 
     const parsed = JSON.parse(completion.choices[0].message.content!);
